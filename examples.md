@@ -104,6 +104,18 @@ steps:
       ${{ runner.os }}-mix-
 ```
 
+## Erlang - Rebar3
+```yaml
+- uses: actions/cache@v2
+  with:
+    path: |
+      ~/.cache/rebar3
+      _build
+    key: ${{ runner.os }}-erlang-${{ env.OTP_VERSION }}-${{ hashFiles('**/*rebar.lock') }}
+    restore-keys: |
+      ${{ runner.os }}-erlang-${{ env.OTP_VERSION }}-
+```
+
 ## Go - Modules
 
 ```yaml
